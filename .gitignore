@@ -18,3 +18,5 @@
 .azsql.yaml
 
 vendor/
+
+azsql
