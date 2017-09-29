@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"errors"
-	"github.com/devigned/azure-golang-pg-mssql/pg"
+	"github.com/devigned/azure-golang-pg-mssql/mysql"
 	"github.com/spf13/cobra"
 )
 
@@ -19,7 +19,7 @@ var (
 			}
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return pg.Run(command, connString)
+			return mysql.Run(mysqlCmdString, mysqlConnString)
 		},
 	}
 
@@ -35,12 +35,12 @@ func init() {
 		"cmd",
 		"c",
 		"select 'hello world!'",
-		"Command to execute against PostgreSQL")
+		"Command to execute against MySQL")
 
 	mysqlCmd.Flags().StringVarP(
 		&mysqlConnString,
 		"conn",
 		"n",
 		"",
-		"Connection string for PostgreSQL")
+		"Connection string for MySQL")
 }

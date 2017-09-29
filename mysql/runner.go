@@ -7,6 +7,7 @@ import (
 )
 
 func Run(cmd, conn string) error {
+	fmt.Println(conn)
 	db, err := sql.Open("mysql", conn)
 	if err != nil {
 		return err
